@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+        html {
+            font-family:Arial;
+            background:#eee;
+        }
+        #container {
+            margin:50px;
+            padding:50px;
+            border:10px solid #414141;
+            background:#fff;
+        }
+
+        h1 {
+            margin:0 0 10px 0;
+            padding:0 0 10px 0;
+        }
+
+        h2 {
+            margin:30px 0 0 0;
+            font-size: 18px;
+        }
+
+        label {
+            margin:20px 0 0 0;
+            display:block;
+            width:300px;
+        }
+
+        input,textarea {
+            width:300px;
+            border:1px solid #414141;
+            padding:2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Tests</h1>
+        <h2>Text</h2>
+        <div>
+            <label>type="text"
+            <input type="text"></label>
+        </div>
+        <div>
+            <label>textarea
+                <textarea></textarea>
+            </label>
+        </div>
+        <h2>Email</h2>
+        <div>
+            <label>type="text" name="email"
+            <input type="text" name="email"></label>
+        </div>
+        <div>
+            <label>type="email"
+            <input type="email"></label>
+        </div>
+        <h2>URL</h2>
+        <div>
+            <label>type="text" name="url"
+            <input type="text" name="url"></label>
+        </div>
+        <div>
+            <label>type="url"
+            <input type="url"></label>
+        </div>
+        <div>
+            <label>type="text" name="website"
+            <input type="text" name="website"></label>
+        </div>
+        <h2>Number</h2>
+        <div>
+            <label>type="number"
+            <input type="number"></label>
+        </div>
+        <div>
+            <label>type="number" min="1" max="5"
+            <input type="number" min="1" max="5"></label>
+        </div>
+    </div>
+</body>
+</html>
