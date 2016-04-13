@@ -11,4 +11,4 @@ Inspirada na extensão Paste 'Lorem Ipsum...' e no lendário Gerador de Lero-Ler
 
 
   [1]: http://i.imgur.com/GXf5VfQ.png
-  [2]: https://chrome.google.com/webstore/detail/adicionar-lero-lero/
+  [2]: https://chrome.google.com/webstore/detail/adicionar-lero-lero/mbgddfahdjkafkbokdlpkjckidbcgnfk
