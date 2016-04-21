@@ -1,6 +1,5 @@
 function updateType(typeName) {
 	chrome.browserAction.setIcon({path:"icons/" + typeName + ".png"});
-	contole.log(ctx_id);
 }
 
 chrome.contextMenus.create({
