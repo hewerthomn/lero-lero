@@ -4,17 +4,29 @@ $(function(){
 	}
 
 	var editable = null;
-	$("input, textarea").mousedown(function(){
-		// Capture the editable element
+	$("html").on("mousedown", "input, textarea", function(){
 		editable = $(this);
-	});
+	})
 
-    var messagesFile = "lerolero";
+    var messageType = "lerolero";
+    chrome.storage.local.get('tipo', function(data) {
+        messageType = data.tipo;
+        chrome.runtime.sendMessage({messageType : data.tipo}); // atualiza o icone
+    });
+    chrome.storage.onChanged.addListener(function(changes, namespace) {
+        for (key in changes) {
+            switch(key) {
+                case 'tipo':
+                    messageType = changes[key].newValue;
+                    chrome.runtime.sendMessage({messageType : messageType}); // atualiza o icone
+                break;
+            }
+        }
+    });
 
 	chrome.extension.onRequest.addListener(
 		function(request, sender, sendResponse) {
-
-			if (request.insertLerolero === true) {
+			if (request.insertLerolero === true && editable) {
 				type = editable.attr("type");
 				name = editable.attr("name");
 				if (type == "email" || name.indexOf("email") != -1) {
@@ -30,15 +42,14 @@ $(function(){
 					editable.val(Math.floor(randomNumber));
 				}
 				else {
-                    var messagesUrl = chrome.extension.getURL("messages/"+messagesFile+".json");
+                    var messagesUrl = chrome.extension.getURL("messages/" + messageType + ".json");
                     $.getJSON(messagesUrl, function(messages) {
-                        console.debug(messages.arr0.length);
-    					var lerolero = rand(messages.arr0) + rand(messages.arr1) + rand(messages.arr2) + rand(messages.arr3);
+    					var message = rand(messages.arr0) + rand(messages.arr1) + rand(messages.arr2) + rand(messages.arr3);
     					var maxlength = editable.attr("maxlength")
     					if (maxlength) {
-    						lerolero = lerolero.substring(0, maxlength)
+    						message = message.substring(0, maxlength)
     					}
-    					editable.val(editable.val() + lerolero);
+    					editable.val(editable.val() + message);
                     });
 				}
 

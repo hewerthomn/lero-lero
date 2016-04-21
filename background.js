@@ -1,3 +1,8 @@
+function updateType(typeName) {
+	chrome.browserAction.setIcon({path:"icons/" + typeName + ".png"});
+	contole.log(ctx_id);
+}
+
 chrome.contextMenus.create({
 	"title": "Adicionar Lero-lero...",
 	"contexts":["editable"],
@@ -8,3 +13,10 @@ chrome.contextMenus.create({
 		)
 	}
 });
+
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse) {
+		if (request.messageType){
+			updateType(request.messageType);
+		}
+	});
