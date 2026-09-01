@@ -4,7 +4,7 @@
   "description": "Preencha campos de formulário rapidamente com textos e dados de teste.",
   "version": "2.0.0",
   "action": {
-    "default_popup": "menu.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
@@ -16,12 +16,23 @@
     "storage"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background/service-worker.js"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content_script.js"]
+      "js": [
+        "src/shared/namespace.js",
+        "src/storage/settings-repository.js",
+        "src/generators/generator-registry.js",
+        "src/generators/legacy-text-generator.js",
+        "src/generators/basic-generators.js",
+        "src/generators/default-registry.js",
+        "src/content/field-detector.js",
+        "src/content/form-scanner.js",
+        "src/content/field-filler.js",
+        "src/content/content-script.js"
+      ]
     }
   ],
   "icons": {

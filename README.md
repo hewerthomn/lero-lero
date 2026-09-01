@@ -2,19 +2,39 @@
 
 Extensão para Google Chrome voltada ao preenchimento rápido de campos de formulário com textos e dados de teste.
 
-A versão 2 inicia a modernização do projeto para **Manifest V3** e prepara a base para evoluir o Lero Lero para um form filler completo.
+A versão 2 usa **Manifest V3** e está sendo evoluída para um form filler completo, com detecção inteligente de campos, geradores locais, templates e profiles por página/site.
 
 ## Estado atual da v2
 
 - Manifest V3;
 - background executado como service worker;
+- código organizado em camadas independentes;
+- `FormScanner`, `FieldDetector` e `FieldFiller` separados;
+- generators registrados por `GeneratorRegistry`;
+- storage encapsulado por repositories;
+- contratos iniciais para profiles e templates;
 - menu de contexto para campos editáveis;
 - preenchimento de e-mail, URL, número e texto;
-- armazenamento local do tipo de texto;
 - sem dependência de jQuery;
 - sem APIs legadas do Manifest V2.
 
-Nesta primeira etapa da v2, os geradores de texto existentes foram preservados para manter compatibilidade funcional. Eles serão reorganizados nas próximas etapas do Form Filler.
+Os geradores de texto históricos continuam temporariamente encapsulados pelo novo registry. Eles serão removidos quando entrar o novo gerador local Lero Lero.
+
+## Estrutura
+
+```text
+src/
+├── background/
+├── content/
+├── generators/
+├── popup/
+├── profiles/
+├── shared/
+├── storage/
+└── templates/
+```
+
+A arquitetura e os contratos estão descritos em [`docs/architecture.md`](docs/architecture.md).
 
 ## Instalação para desenvolvimento
 
@@ -28,7 +48,7 @@ Para testar, abra `tests/index.html` em um servidor HTTP local ou qualquer pági
 
 ## Próximas etapas da v2
 
-A evolução planejada inclui Smart Fill, detecção semântica de campos, geradores locais, templates dinâmicos e profiles configuráveis por site/página.
+O próximo milestone é o **Smart Fill**: ampliar o scanner e o detector para todos os principais controles HTML, inferência semântica por `name`, `id`, `label`, `placeholder`, `autocomplete` e demais atributos.
 
 ## Origem
 
