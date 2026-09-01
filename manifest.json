@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Lero Lero - Form Filler",
-  "description": "Preencha campos de formulário rapidamente com textos e dados de teste.",
-  "version": "2.0.0",
+  "name": "Adicionar Lero-lero",
+  "description": "Clique com o botão direito para adicionar textos de Lero-lero e dados simples de teste em campos de formulário.",
+  "version": "1.1.0",
   "action": {
     "default_popup": "menu.html",
     "default_icon": {
