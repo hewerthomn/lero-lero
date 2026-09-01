@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="pt-BR">
 <head>
-	<style type="text/css">
-		/*Melhorar o menu*/
-		select {
-			margin: 5px;
-		}
-	</style>
-	<script type="text/javascript" src="menu.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lero Lero</title>
+  <style>
+    body {
+      min-width: 190px;
+      margin: 12px;
+      font-family: system-ui, sans-serif;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    select {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
+  <label for="tipo">Tipo de texto</label>
+  <select id="tipo">
+    <option value="lerolero">Lero-lero</option>
+    <option value="mussum">Mussum Ipsum</option>
+    <option value="pt">PT Ipsum</option>
+    <option value="dilma">Dilma Ipsum</option>
+  </select>
 
-<label for="tipo">Tipo</label>
-<select id="tipo">
-	<option value="lerolero">Lero-lero</option>
-	<option value="mussum">Mussum Ipsum</option>
-	<option value="pt">PT Ipsum</option>
-	<option value="dilma">Dilma Ipsum</option>
-</select>
-
+  <script src="menu.js"></script>
 </body>
 </html>

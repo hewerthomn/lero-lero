@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", async () => {
+  const select = document.getElementById("tipo");
 
-    var selects = document.querySelectorAll('select');
-    for (var i = 0; i < selects.length; i++) {
-        var select = selects[i];
-        select.addEventListener('change', function(){
-            var setting = {};
-            setting[this['id']] = this['value'];
-            chrome.storage.local.set(setting);
-        });
-        chrome.storage.local.get(select["id"], function(data) {
-            select.value = data[select["id"]];
-        });
-    }
+  if (!select) {
+    return;
+  }
 
+  const { tipo = "lerolero" } = await chrome.storage.local.get({ tipo: "lerolero" });
+  const validValue = Array.from(select.options).some((option) => option.value === tipo);
+
+  select.value = validValue ? tipo : "lerolero";
+
+  select.addEventListener("change", async () => {
+    await chrome.storage.local.set({ tipo: select.value });
+  });
 });

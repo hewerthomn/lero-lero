@@ -1,27 +1,38 @@
 {
-    "manifest_version": 2,
-    "name": "Adicionar Lero-lero",
-    "description": "Clique com o botão direito para adicionar um texto de lero-lero no Google Chrome",
-    "version": "1.0",
-    "browser_action" : {
-        "default_popup": "menu.html"
-    },
-    "permissions": [
-        "contextMenus", "storage"
-    ],
-    "background": {
-        "scripts": ["background.js"]
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["jquery-2.2.3.min.js", "content_script.js"]
-      }
-    ],
-    "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-    },
-    "web_accessible_resources" : ["messages/*.json"]
+  "manifest_version": 3,
+  "name": "Lero Lero - Form Filler",
+  "description": "Preencha campos de formulário rapidamente com textos e dados de teste.",
+  "version": "2.0.0",
+  "action": {
+    "default_popup": "menu.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["messages/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
