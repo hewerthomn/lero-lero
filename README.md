@@ -1,20 +1,22 @@
-# Lero Lero - Form Filler
+# Adicionar Lero-lero
 
-Extensão para Google Chrome voltada ao preenchimento rápido de campos de formulário com textos e dados de teste.
+Extensão open source para Google Chrome que adiciona textos de Lero-lero e dados simples de teste em campos de formulário pelo menu de contexto.
 
-A versão 2 inicia a modernização do projeto para **Manifest V3** e prepara a base para evoluir o Lero Lero para um form filler completo.
+## Versão atual
 
-## Estado atual da v2
+A versão **1.1.0** mantém a proposta original da extensão e atualiza a base técnica para **Manifest V3**.
+
+Principais mudanças desta atualização:
 
 - Manifest V3;
 - background executado como service worker;
 - menu de contexto para campos editáveis;
 - preenchimento de e-mail, URL, número e texto;
 - armazenamento local do tipo de texto;
-- sem dependência de jQuery;
-- sem APIs legadas do Manifest V2.
+- remoção da dependência de jQuery;
+- remoção das APIs legadas do Manifest V2.
 
-Nesta primeira etapa da v2, os geradores de texto existentes foram preservados para manter compatibilidade funcional. Eles serão reorganizados nas próximas etapas do Form Filler.
+Os geradores de texto existentes foram preservados para manter compatibilidade com o comportamento histórico da extensão.
 
 ## Instalação para desenvolvimento
 
@@ -26,9 +28,11 @@ Nesta primeira etapa da v2, os geradores de texto existentes foram preservados p
 
 Para testar, abra `tests/index.html` em um servidor HTTP local ou qualquer página com campos de formulário, clique com o botão direito em um campo editável e escolha **Adicionar Lero-lero...**.
 
-## Próximas etapas da v2
+## Sobre este repositório
 
-A evolução planejada inclui Smart Fill, detecção semântica de campos, geradores locais, templates dinâmicos e profiles configuráveis por site/página.
+Este repositório contém a extensão open source original e continuará focado na versão clássica compatível com Manifest V3.
+
+Uma nova geração do projeto, voltada a preenchimento avançado de formulários, profiles, regras dinâmicas e outros recursos, será desenvolvida separadamente.
 
 ## Origem
 
